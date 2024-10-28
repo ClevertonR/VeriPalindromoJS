@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Palíndromo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Palíndromo</h1>
+        <input type="text" id="texto" placeholder="Digite um texto">
+        <button id="verificar">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        document.getElementById('verificar').addEventListener('click', function() {
+            const texto = document.getElementById('texto').value;
+            const resultado = document.getElementById('resultado');
+        
+            // Remove espaços e converte para minúsculas
+            const textoLimpo = texto.replace(/[\W_]/g, '').toLowerCase();
+            const textoInvertido = textoLimpo.split('').reverse().join('');
+        
+            if (textoLimpo === textoInvertido) {
+                resultado.textContent = `"${texto}" é um palíndromo!`;
+            } else {
+                resultado.textContent = `"${texto}" não é um palíndromo.`;
+            }
+        });
+    </script>
+</body>
+</html>
